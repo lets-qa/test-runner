@@ -1,15 +1,22 @@
 # Test Runner Docker Container
 
-This repository provides a Dockerfile for building an ARM-based container
-with Ruby 3.2.2 and several testing gems. The container also installs
-Chromium so it can be used for headless browsing.
+This repository provides a Dockerfile for building a container with Ruby
+3.2.2 and several testing gems. The container also installs Chromium so it
+can be used for headless browsing. The Dockerfile works with multiple
+architectures, allowing you to build either ARM64 or AMD64 images.
 
 ## Building
 
-Build the image using Docker's buildx so the container is built for ARM64:
+Build the image using Docker's buildx. To build for ARM64 run:
 
 ```bash
 docker buildx build --platform linux/arm64 -t test-runner:arm64 .
+```
+
+To build for AMD64 simply change the platform and tag:
+
+```bash
+docker buildx build --platform linux/amd64 -t test-runner:amd64 .
 ```
 
 The resulting image contains all gems listed in the `Gemfile` and can be
@@ -21,8 +28,13 @@ To execute tests stored on your machine, map the directory containing
 your test suite to `/app` inside the container. For example, if your
 tests are located in `~/lets-qa/acceptance/`, start the container with:
 
+
 ```bash
+# For an ARM64 image
 docker run -it --rm -v ~/lets-qa/acceptance:/app test-runner:arm64 bash
+
+# For an AMD64 image
+docker run -it --rm -v ~/lets-qa/acceptance:/app test-runner:amd64 bash
 ```
 
 This command launches the container with the current working directory set
