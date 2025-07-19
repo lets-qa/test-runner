@@ -9,7 +9,6 @@ gem 'mail'
 # gem 'cucumber-api'
 
 gem 'pdf-reader'
-gem 'json'
 gem 'terminal-table'
 gem 'awesome_print'
 gem 'webdrivers'
