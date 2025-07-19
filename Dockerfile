@@ -9,7 +9,8 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 
 WORKDIR /app
 
-COPY Gemfile Gemfile.lock ./
+COPY Gemfile ./
+COPY Gemfile.lock ./ || true
 
 RUN bundle install
 
