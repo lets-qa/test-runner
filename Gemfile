@@ -20,4 +20,4 @@ gem 'pg'
 gem 'net-ssh-gateway'
 gem 'aws-sdk-secretsmanager'
 gem 'net-sftp'
-gem 'csv'
+# Removed unnecessary gem 'csv' as it is part of Ruby's standard library.
