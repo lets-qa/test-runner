@@ -1,0 +1,12 @@
+.git
+.github
+*.md
+
+# Ignore bundler and gem artifacts
+.bundle/
+vendor/
+
+# Ignore temporary or log files
+log/
+tmp/
+*.log
