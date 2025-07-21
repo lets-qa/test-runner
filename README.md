@@ -40,3 +40,10 @@ docker run -it --rm -v ~/lets-qa/acceptance:/app test-runner:amd64 bash
 This command launches the container with the current working directory set
 to `/app`, where your tests are mounted. From there you can run any
 commands you need, such as `bundle exec cucumber` or `bundle exec rspec`.
+
+If your tests require an X server, you can prefix the test command with
+`xvfb-run` to run them in a virtual framebuffer. For example:
+
+```bash
+xvfb-run bundle exec rspec
+```
