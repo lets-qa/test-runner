@@ -41,9 +41,29 @@ This command launches the container with the current working directory set
 to `/app`, where your tests are mounted. From there you can run any
 commands you need, such as `bundle exec cucumber` or `bundle exec rspec`.
 
+
 If your tests require an X server, you can prefix the test command with
 `xvfb-run` to run them in a virtual framebuffer. For example:
 
 ```bash
 xvfb-run bundle exec rspec
+```
+
+## Testing Watir
+
+You can quickly verify that Watir is working inside the container by running a small script.
+
+```ruby
+# test_browser.rb
+require 'watir'
+browser = Watir::Browser.new(:chrome, headless: true)
+browser.goto('https://example.com')
+puts browser.title
+browser.close
+```
+
+Run the script inside the container with:
+
+```bash
+bundle exec ruby test_browser.rb
 ```

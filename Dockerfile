@@ -5,6 +5,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     build-essential \
     chromium \
     xvfb \
+    chromium-driver \
     libpq-dev \
  && rm -rf /var/lib/apt/lists/*
 
