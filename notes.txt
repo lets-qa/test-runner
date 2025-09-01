@@ -1,0 +1,372 @@
+docker buildx build --platform linux/arm64 -t test-runner:arm64 .
+
+docker run -it --rm -v ~/workspace/pdv/sa-qa-smoketest:/app test-runner:arm64 bash
+
+@BCAS-PDV @BCAS-WIGITRON-V2-PDV
+Feature: Post Deployment Verification for BCAS V2
+
+  @BCAS-WIGITRON-V2-PDV-EXPORT-8K-ZIP @BCAS-WIGITRON-V2-PDV-EXTENDED
+  Scenario: @BCAS-WIGITRON-V2-PDV-EXPORT-8K-ZIP: Export large 8k dataset, ZIP, verify contents                                                                                                     # features/bcas/wigitron/wigitron-es8/admin/bcas-wigitron-v2-pdv.feature:224
+
+  @BCAS-WIGITRON-V2-PDV-IMPORT-PST-VIA-UI @BCAS-WIGITRON-V2-PDV-EXTENDED
+  Scenario: @BCAS-WIGITRON-V2-PDV-IMPORT-PST-VIA-UI: Import a .PST file containing a single message, verify import via search                                       # features/bcas/wigitron/wigitron-es8/admin/bcas-wigitron-v2-pdv.feature:315
+
+  @BCAS-WIGITRON-V2-PDV-IMPORT-ZIP-VIA-SFTP @BCAS-WIGITRON-V2-PDV-EXTENDED
+  Scenario: @BCAS-WIGITRON-V2-PDV-IMPORT-ZIP-VIA-SFTP: Import a .zip file  via SFTP containing a single message, verify import via search             # features/bcas/wigitron/wigitron-es8/admin/bcas-wigitron-v2-pdv.feature:448
+  # cucumber --tags "@BCAS-WIGITRON-V2-PDV-IMPORT-ZIP-VIA-SFTP and not @DNR" -f pretty -f html --out report.html
+
+
+  @BCAS-WIGITRON-V2-PDV-IMPORT-VIA-PYXINT @BCAS-WIGITRON-V2-PDV-EXTENDED
+  Scenario: @BCAS-WIGITRON-V2-PDV-IMPORT-VIA-PYXINT: Send an email to an MS account and initiate a pyxint job against that MS account.                                                                                 # features/bcas/wigitron/wigitron-es8/admin/bcas-wigitron-v2-pdv.feature:687
+
+4 scenarios (4 skipped)
+171 steps (171 skipped)
+
+---
+
+Write book:
+
+wateir MCP
+
+I want each section to report run time
+
+what is the content used in the current sftp zip import?
+
+how does it get created?
+
+does it use the digest?
+
+exports of each type
+
+- zip
+- pst
+- csv
+
+Imports of each type with freshly generated mail via digest tool
+
+- sftp zip nested zips
+- sftp zip bma stripe
+- sftp pst
+- ui pst
+
+verify forwards
+
+verify downloads
+
+verify smtp
+
+verify tags
+
+audit
+
+verify MFA
+
+verify count in  es for search data
+
+verify all in databricks
+
+verify heartbeat
+
+verify report to s3
+
+
+
+want to add s3 report
+want to  creat a test rails test run for pdv
+want to treat it like acceptace
+want to validate complete and pass in test rail
+
+
+
+---
+
+
+root@02427a142bb6:/app# ./bcas-ue2-qa-pdv.sh 
+ruby 3.2.2 (2023-03-30 revision e51014f9c0) [aarch64-linux]
+Fetching gem metadata from https://rubygems.org/...........
+Resolving dependencies...
+Using Ascii85 2.0.1
+Using bundler 2.4.10
+Using cucumber-tag-expressions 6.1.2
+Using afm 0.2.2
+Using bigdecimal 3.2.2
+Using cucumber-messages 27.2.0
+Using multi_test 1.1.0
+Using contracts 0.17.2
+Using builder 3.3.0
+Using cucumber-ci-environment 10.0.1
+Using thor 1.4.0
+Using rspec-support 3.13.4
+Using diff-lcs 1.6.2
+Using logger 1.7.0
+Using ffi 1.17.2 (aarch64-linux-gnu)
+Fetching csv 3.3.5
+Using awesome_print 1.9.2
+Using base64 0.3.0
+Using hashery 2.1.2
+Using headless 3.0.0
+Using timeout 0.4.3
+Using date 3.4.1
+Using racc 1.8.1
+Using ruby-rc4 0.1.5
+Using pg 1.6.1 (aarch64-linux)
+Fetching json 2.13.2
+Using regexp_parser 2.11.1
+Using rexml 3.4.1
+Using rubyzip 2.4.1
+Using aws-partitions 1.1144.0
+Using jmespath 1.6.2
+Using unicode-emoji 4.0.4
+Using cucumber-cucumber-expressions 18.0.1
+Fetching cucumber-html-formatter 21.14.0
+Using aws-eventstream 1.4.0
+Using cucumber-gherkin 32.2.0
+Using ttfunk 1.8.0
+Using rspec-expectations 3.13.5
+Using net-ssh 7.3.0
+Using rspec-mocks 3.13.5
+Using mini_mime 1.1.5
+Using net-protocol 0.2.2
+Using sys-uname 1.3.1
+Using cucumber-core 15.2.0
+Using pdf-reader 2.14.1
+Using unicode-display_width 3.1.4
+Using nokogiri 1.18.9 (aarch64-linux-gnu)
+Using aws-sigv4 1.12.1
+Using net-imap 0.5.9
+Using net-ssh-gateway 2.0.0
+Using rspec-core 3.13.5
+Using net-sftp 4.0.0
+Using aws-sdk-core 3.229.0
+Using net-pop 0.1.2
+Using watir-nokogiri 1.0.0
+Using aws-sdk-secretsmanager 1.119.0
+Using rspec 3.13.1
+Using websocket 1.2.11
+Using terminal-table 4.0.0
+Using net-smtp 0.5.1
+Using mail 2.8.1
+Using selenium-webdriver 4.10.0
+Using webdrivers 5.3.1
+Using watir 7.3.0
+Using watir-scroll 0.4.0
+Installing csv 3.3.5
+Installing json 2.13.2 with native extensions
+Installing cucumber-html-formatter 21.14.0
+Using cucumber 10.0.0
+Using aruba 2.3.1
+Bundle complete! 20 Gemfile dependencies, 67 gems now installed.
+Use `bundle info [gemname]` to see where a bundled gem is installed.
+1 installed gem you directly depend on is looking for funding.
+  Run `bundle fund` for details
+@BCAS-PDV @BCAS-WIGITRON-V2-PDV
+Feature: Post Deployment Verification for BCAS V2
+
+  # Verify that the account is on the correct version of ES
+  # Ensure that we are only looking at the heartbeat emails
+  # wait for 'Loading...' to complete
+  # Verify that the email subject and body are correct and the timestamp is within the last "BCAS_HEARTBEAT_WINDOW" minutes
+  #  Then I retrieve the saved email data of account "bcas-wigitron-v2-pdv"
+  #  When I store the value of key "smtp_subject" in key "smtp_receive_subject"
+  #  When I store the value of key "smtp_body" in key "smtp_receive_body"
+  # Verify that the account is on the correct version of ES
+  # wait for 'Loading...' to complete
+  # Verify that the account is on the correct version of ES
+  # Ensure that we are only looking at the heartbeat emails
+  # wait for 'Loading...' to complete
+  # Deletes any jobs that match BCAS-SMTP before exports begin. This allows us to keep the UI cleaner
+  # Race condition is possible if the test is run from 2 different locations at the same time
+  # go to Search tab
+  # open Tools control, select 'Export Messages'
+  # verify modal opens
+  # select PST (default)
+  # enter export name + timestamp
+  #BCAS removes the pipe in a string so we're just going to use the unique timestamp instead of the full subject line
+  # verify green banner
+  # open Tasks tab
+  # wait for 'Loading...' to complete
+  # Ensure that the export has started, retry creating the export
+  # verify export is displayed
+  # open download modal
+  # click Download link and wait for download to complete
+  # verify size/extracted filetype/# of messages/some message content
+  # Add the following in when dealing with a stack setup for V2
+  # For PST, can only test if the export contains the text if you run the extract line above first
+  # DNR due to readpst not working reliably in CI
+  # This test can be run locally
+  # Verify that the account is on the correct version of ES
+  # set the num_messages key to the number of messages in the search, this number is used later for ensuring we are checking the right export on the tasks page
+  # open Tools control, select 'Export Messages'
+  # verify modal opens
+  # select PST (default)
+  # enter export name + timestamp
+  #BCAS removes the pipe in a string so we're just going to use the unique timestamp instead of the full subject line
+  # verify green banner
+  # open Tasks tab
+  # wait for 'Loading...' to complete
+  # Ensure that the export has started, retry creating the export
+  # verify export is displayed
+  # open download modal
+  # click Download link and wait for download to complete
+  # verify size/extracted filetype/# of messages/some message content
+  # Add the following in when dealing with a stack setup for V2
+  # For PST, can only test if the export contains the text if you run the extract line above first
+  # Verify that the account is on the correct version of ES
+  # set the num_messages key to the number of messages in the search, this number is used later for ensuring we are checking the right export on the tasks page
+  # open Tools control, select 'Export Messages'
+  # verify modal opens
+  # select PST (default)
+  # enter export name + timestamp
+  #BCAS removes the pipe in a string so we're just going to use the unique timestamp instead of the full subject line
+  # verify green banner
+  # open Tasks tab
+  # wait for 'Loading...' to complete
+  # Ensure that the export has started, retry creating the export
+  # verify export is displayed
+  # open download modal
+  # click Download link and wait for download to complete
+  # verify size/extracted filetype/# of messages/some message content
+  # Add the following in when dealing with a stack setup for V2
+  # For PST, can only test if the export contains the text if you run the extract line above first
+  # Verify that the account is on the correct version of ES
+  @BCAS-WIGITRON-V2-PDV-IMPORT-PST-VIA-UI @BCAS-WIGITRON-V2-PDV-EXTENDED
+  Scenario: @BCAS-WIGITRON-V2-PDV-IMPORT-PST-VIA-UI: Import a .PST file containing a single message, verify import via search                                       # features/bcas/wigitron/wigitron-es8/admin/bcas-wigitron-v2-pdv.feature:315
+2025-08-11 13:40:27 +0000
+**** The current stack is BCAS-QA-UE2 ****
+🕐 CHROME IANA TIMEZONE: UTC
+800
+600
+    Given I set browser size "1920" with "882"                                                                                                                      # features/archiving/step_definitions/common_steps.rb:641
+    When I retrieve the account data for "bcas-wigitron-v2-pdv"                                                                                                     # features/archiving/step_definitions/common_steps.rb:920
+"ssuhail+pdv+qa@bcasqa.com"
+"https://mas.qa.cudaops.com/"
+    #Then I retrieve the saved email data of account "bcas-wigitron-v2-pdv"
+    And I browse to the account_home                                                                                                                                # features/archiving/step_definitions/common_steps.rb:932
+    Then I ensure the page has fully loaded by verifying the text "Sign in"                                                                                         # features/archiving/step_definitions/common_steps.rb:481
+    Then I ensure the page has fully loaded by verifying the text "Welcome"                                                                                         # features/archiving/step_definitions/common_steps.rb:481
+    And I fill out the "username" field with the account "username"                                                                                                 # features/archiving/step_definitions/common_steps.rb:941
+    And I click the button-text "Continue"                                                                                                                          # features/archiving/step_definitions/common_steps.rb:377
+    Then I ensure the page has fully loaded by verifying the text "Password"                                                                                        # features/archiving/step_definitions/common_steps.rb:481
+    And I fill out the "password" field with the account "password"                                                                                                 # features/archiving/step_definitions/common_steps.rb:941
+    And I click the button-text "Continue"                                                                                                                          # features/archiving/step_definitions/common_steps.rb:377
+    And I wait for the legacy dashboard page to fully load                                                                                                          # features/archiving/step_definitions/common_steps.rb:1489
+    And I wait a max of "60" seconds for the page to display the text "Subscriptions"                                                                               # features/archiving/step_definitions/common_steps.rb:485
+    # Verify that the account is on the correct version of ES
+    Then I verify that the BCAS account is utilizing ES8 by verifying that the table row with text "Platform" should contain "Public Cloud"                         # features/archiving/step_definitions/view_steps.rb:634
+    And I click the span-data-title "Mail Sources"                                                                                                                  # features/archiving/step_definitions/view_steps.rb:278
+    And I wait a max of "60" seconds for the page to display the text "PST Import"                                                                                  # features/archiving/step_definitions/common_steps.rb:485
+    And I click the span-data-title "PST Import"                                                                                                                    # features/archiving/step_definitions/view_steps.rb:278
+    And I ensure the page has fully loaded by verifying the text "PST Import Options"                                                                               # features/archiving/step_definitions/common_steps.rb:481
+    # verify 'PST Import Options' Help button launches standalone window, verify content, close
+    Then I ensure the page has fully loaded by verifying the text "Allow SFTP Transfers:"                                                                           # features/archiving/step_definitions/common_steps.rb:481
+    Then I ensure the page has fully loaded by verifying the text "Yes"                                                                                             # features/archiving/step_definitions/common_steps.rb:481
+    Then I ensure the page has fully loaded by verifying the text "No"                                                                                              # features/archiving/step_definitions/common_steps.rb:481
+    Then I ensure the page has fully loaded by verifying the text "Allow users to import their own PST files directly from their"                                   # features/archiving/step_definitions/common_steps.rb:481
+    Then I ensure the page has fully loaded by verifying the text "page."                                                                                           # features/archiving/step_definitions/common_steps.rb:481
+    # verify 'Import PST Files' section
+    Then I ensure the page has fully loaded by verifying the text "Import PST Files"                                                                                # features/archiving/step_definitions/common_steps.rb:481
+    Then I ensure the page has fully loaded by verifying the text "PST File:"                                                                                       # features/archiving/step_definitions/common_steps.rb:481
+    # save the pst file location from the download folder and imput it to text box
+    # csolter We don't need to use the download location from the export test here because we are going to use the normal download location
+    When I store the value "PST Import via UI Test Email" in key "pstimport_subject"                                                                                # features/archiving/step_definitions/common_steps.rb:814
+    When I store the value "This is a test email for PST import via UI" in key "pstimport_body"                                                                     # features/archiving/step_definitions/common_steps.rb:814
+[INFO] 2025-08-11 13:40:56: PST Tools API IP is: ci.bcasqa.com:8001
+[INFO] 2025-08-11 13:40:56: Creating EML file with data: {"download_location"=>"/app/data/exports/bcas-qa-ue2/20250811-134028/1754919656.pst", "subject"=>"1754919656|PST Import via UI Test Email", "body"=>"1754919656|This is a test email for PST import via UI|2025-08-11 13:40:56 UTC", "from"=>"rmorse@wigitron.com", "to"=>"automation@bcasqa.com"}
+[INFO] 2025-08-11 13:40:56: Zipping EML file
+[INFO] 2025-08-11 13:40:57: Converting to PST
+[INFO] 2025-08-11 13:40:57: curl -s -X POST 'http://ci.bcasqa.com:8001/v1/eml2pst?wait=0' -H 'accept: application/json' -H 'Content-Type: multipart/form-data' -F 'file=@/app/data/exports/bcas-qa-ue2/20250811-134028/1754919656.zip;type=application/zip'
+[INFO] 2025-08-11 13:40:57: {"id":"72dc3565a7a04a9c97d5f70e4fc2a894","status":"queued","queued_at":"2025-08-11T13:40:57.483464","started_at":null,"finished_at":null,"download":null,"error":null}
+[INFO] 2025-08-11 13:40:57: Captured ID: 72dc3565a7a04a9c97d5f70e4fc2a894
+[INFO] 2025-08-11 13:40:57: curl -s -X GET 'http://ci.bcasqa.com:8001/v1/eml2pst/72dc3565a7a04a9c97d5f70e4fc2a894' -H 'accept: application/json'
+[INFO] 2025-08-11 13:40:57: {"id":"72dc3565a7a04a9c97d5f70e4fc2a894","status":"running","queued_at":"2025-08-11T13:40:57.483464","started_at":"2025-08-11T13:40:57.492831","finished_at":null,"download":null,"error":null}
+[INFO] 2025-08-11 13:40:57: Captured status: running
+[INFO] 2025-08-11 13:40:59: curl -s -X GET 'http://ci.bcasqa.com:8001/v1/eml2pst/72dc3565a7a04a9c97d5f70e4fc2a894' -H 'accept: application/json'
+[INFO] 2025-08-11 13:40:59: {"id":"72dc3565a7a04a9c97d5f70e4fc2a894","status":"running","queued_at":"2025-08-11T13:40:57.483464","started_at":"2025-08-11T13:40:57.492831","finished_at":null,"download":null,"error":null}
+[INFO] 2025-08-11 13:40:59: Captured status: running
+[INFO] 2025-08-11 13:41:01: curl -s -X GET 'http://ci.bcasqa.com:8001/v1/eml2pst/72dc3565a7a04a9c97d5f70e4fc2a894' -H 'accept: application/json'
+[INFO] 2025-08-11 13:41:01: {"id":"72dc3565a7a04a9c97d5f70e4fc2a894","status":"completed","queued_at":"2025-08-11T13:40:57.483464","started_at":"2025-08-11T13:40:57.492831","finished_at":"2025-08-11T13:41:00.023304","download":"/download/72dc3565a7a04a9c97d5f70e4fc2a894","error":null}
+[INFO] 2025-08-11 13:41:01: Captured status: completed
+[INFO] 2025-08-11 13:41:04: curl -s -X GET 'http://ci.bcasqa.com:8001/download/72dc3565a7a04a9c97d5f70e4fc2a894' -H 'accept: application/json' --output '/app/data/exports/bcas-qa-ue2/20250811-134028/1754919656.pst'
+[INFO] 2025-08-11 13:41:04: File created at: /app/data/exports/bcas-qa-ue2/20250811-134028/1754919656.pst
+    Then I create a new PST file with subject and body at keys "pstimport_subject" and "pstimport_body" and store its location to key "pstimport_dir"               # features/archiving/step_definitions/view_steps.rb:119
+    #Then I create a new PST file and store its location in key "pstimport_dir" and its subject in key "pstimport_subject" and its body in key "pstimport_body"
+    And I fill out the BCAS PST File field with value stored in key "pstimport_dir"                                                                                 # features/archiving/step_definitions/common_steps.rb:954
+    # verify Import button
+    When I click button-id "pst_submit" at index "0"                                                                                                                # features/archiving/step_definitions/view_steps.rb:18
+    Then I ensure the page has fully loaded by verifying the text "PST import queued. The import status will be displayed in the Recent PST Imports section below." # features/archiving/step_definitions/common_steps.rb:481
+    And I parse the timestamp in key "pstimport_subject" and save it to key "importname"                                                                            # features/archiving/step_definitions/common_steps.rb:1485
+[INFO] 2025-08-11 13:41:08: Validation text is: 1754919656
+    And I ensure that the BCAS PST UI import at key "importname" has started                                                                                        # features/archiving/step_definitions/common_steps.rb:1161
+    Then I ensure the page has fully loaded by verifying the text "Recent PST Imports"                                                                              # features/archiving/step_definitions/common_steps.rb:481
+    # verify 'Recent PST Imports' Help button launches standalone window, verify content, close
+    Then I ensure the page has fully loaded by verifying the text "File Name"                                                                                       # features/archiving/step_definitions/common_steps.rb:481
+    Then I ensure the page has fully loaded by verifying the text "Start Time"                                                                                      # features/archiving/step_definitions/common_steps.rb:481
+    Then I ensure the page has fully loaded by verifying the text "End Time"                                                                                        # features/archiving/step_definitions/common_steps.rb:481
+    Then I ensure the page has fully loaded by verifying the text "Status"                                                                                          # features/archiving/step_definitions/common_steps.rb:481
+    Then I ensure the page has fully loaded by verifying the text "Actions"                                                                                         # features/archiving/step_definitions/common_steps.rb:481
+    Then I click the "Update" button on the PST Import page until to the value at key "importname" is present and the status is "Completed"                         # features/archiving/step_definitions/common_steps.rb:1156
+    And I sleep for "5" seconds                                                                                                                                     # features/archiving/step_definitions/common_steps.rb:557
+    Then I click the span-data-title "Basic"                                                                                                                        # features/archiving/step_definitions/view_steps.rb:278
+    And I click the span-data-title "Search"                                                                                                                        # features/archiving/step_definitions/view_steps.rb:278
+    And I sleep for "5" seconds                                                                                                                                     # features/archiving/step_definitions/common_steps.rb:557
+    And I wait until the div-class "ext-el-mask-msg x-mask-loading" is not present                                                                                  # features/archiving/step_definitions/discoverstor_steps.rb:447
+    And I fill out the "search_term" field with value stored in key "pstimport_subject"                                                                             # features/archiving/step_definitions/common_steps.rb:949
+    And I click "simple_search"                                                                                                                                     # features/archiving/step_definitions/common_steps.rb:968
+    And I wait until the div-class "ext-el-mask-msg x-mask-loading" is not present                                                                                  # features/archiving/step_definitions/discoverstor_steps.rb:447
+    When I refresh the page by clicking the button-class "tbar-loading" until the value at key "pstimport_subject" is present                                       # features/archiving/step_definitions/common_steps.rb:1124
+Text found: 
+    And I wait a max of "60" seconds for the page to display the text "Displaying 1 - 1"                                                                            # features/archiving/step_definitions/common_steps.rb:485
+
+@BCAS-WIGITRON-V2-PDV-IMPORT-PST-VIA-UI: Import a .PST file containing a single message, verify import via search: 427 seconds
+# Verify that the account is on the correct version of ES
+# verify 'SFTP Transfer window'
+# Create a PST file to import via SFTP
+# verify 'PST Import Options' Help button launches standalone window, verify content, close
+# verify 'Import PST Files' section
+# verify 'Recent PST Imports' Help button launches standalone window, verify content, close
+# Verify that the account is on the correct version of ES
+# verify 'SFTP Transfer window'
+# Create a ZIP file to import via SFTP
+# Verify that the account is on the correct version of ES
+#Delete any existing tags from previous runs
+# Go back to the search page
+# verify green banner
+# Verify tag job is complete in the Tasks tab
+# open Tasks tab
+# wait for 'Loading...' to complete
+# Go back to the search page and verify that the tag is present
+# verify unique email is displayed
+# Check the PSTs & Tags tab to ensure the tag is present
+# delete any existing tags from previous runs
+#When I click the link by ID "status_view_link" using fire event
+# wait for 'Loading...' to complete
+#And I wait until the div-class "ext-el-mask-msg x-mask-loading" is not present
+# Deletes any jobs that match Tag before tags begin. This allows us to keep the UI cleaner
+# Race condition is possible if the test is run from 2 different locations at the same time
+#Then I delete tasks matching "Tag |àèìòùÀÈÌÒÙãñõÃÑÕ|\!@\#\$\%\^\&\*\(\)"
+#Verify that the tag is no longer present
+# Verify that the account is on the correct version of ES
+# Verify that the account is on the correct version of ES
+# delete any existing PST-01 exports from previous runs
+# When I click the link by ID "status_view_link" using fire event
+# wait for 'Loading...' to complete
+# Deletes any jobs that match BCAS-SMTP before exports begin. This allows us to keep the UI cleaner
+# Race condition is possible if the test is run from 2 different locations at the same time
+# go to Search tab
+# It's possible that a new heartbeat email hasn't been sent yet (but still within the limit set by BCAS_HEARTBEAT_WINDOW), so we need to account for that
+# open Tools control, select 'Export Messages'
+# verify modal opens
+# select PST (default)
+# enter export name + timestamp
+#BCAS removes the pipe in a string so we're just going to use the unique timestamp instead of the full subject line
+# verify green banner
+# open Tasks tab
+# wait for 'Loading...' to complete
+# And I make a GET request to verifysend for email "forward_recipient" and store the result body in key "forwarded_content"
+# Then I verify that the value of the key "forwarded_content" contains the value in key "forwardname"
+
+1 scenario (1 passed)
+49 steps (49 passed)
+7m7.125s
+02427a142bb6
+root@02427a142bb6:/app# 
