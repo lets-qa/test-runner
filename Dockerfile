@@ -1,4 +1,4 @@
-FROM --platform=$TARGETPLATFORM ruby:3.2.2-slim
+FROM ruby:3.2.2-slim
 
 # Install dependencies
 RUN apt-get update && apt-get install -y --no-install-recommends \
