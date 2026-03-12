@@ -5,7 +5,8 @@ permissions:
 
 on:
   push:
-    branches: [ main ]  # Change to your default branch if needed
+    branches: [ main ]
+  workflow_dispatch:
 
 jobs:
   build-and-push:
