@@ -12,6 +12,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     pst-utils \
     zip \
     awscli \
+    x11vnc \
  && rm -rf /var/lib/apt/lists/*
 
 WORKDIR /app
